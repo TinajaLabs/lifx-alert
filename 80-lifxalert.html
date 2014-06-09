@@ -1,0 +1,50 @@
+<!--
+  Open source 2014 Tinaja Labs
+-->
+
+<!-- First, the content of the edit dialog is defined.                       -->
+<script type="text/x-red" data-template-name="lifxalert">
+   <!-- data-template-name identifies the node type this is for              -->
+
+    <div class="form-row">
+        <label for="node-input-topic"><i class="icon-tasks"></i> Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Topic">
+    </div>
+
+    <br/>
+    <!-- By convention, most nodes have a 'name' property. The following div -->
+    <!-- provides the necessary field. Should always be the last option      -->
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<!-- Next, some simple help text is provided for the node.                   -->
+<script type="text/x-red" data-help-name="lifxalert">
+   <p>Simple Lifx output node that sets status indication for Lifx light bulbs</p>
+   <p>msg.payload: 0=default/green), 1=warning/yellow), 2=critical/red</p>
+</script>
+
+<!-- Finally, the node type is registered along with all of its properties   -->
+<!-- The example below shows a small subset of the properties that can be set-->
+<script type="text/javascript">
+    RED.nodes.registerType('lifxalert',{
+        category: 'output',      // the palette category
+        defaults: {             // defines the editable properties of the node
+            name: {value:""},   //  along with default values.
+            topic: {value:"", required:true}
+        },
+        inputs:1,               // set the number of inputs - only 0 or 1
+        outputs:1,              // set the number of outputs - 0 to n
+        // set the icon (held in icons dir below where you save the node)
+        color: "#8904B1",
+        icon: "light.png",     // saved in  icons/myicon.png
+        label: function() {     // sets the default label contents
+            return this.name||this.topic||"lifxalert";
+        },
+        labelStyle: function() { // sets the class to apply to the label
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
