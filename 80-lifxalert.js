@@ -1,6 +1,6 @@
 /**
  * Open source 2014 Tinaja Labs
- *
+ * 
  **/
 
 // Sample Node-RED node file
