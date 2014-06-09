@@ -44,5 +44,15 @@ Drag the lifxalert module onto the workspace. It has 2 fields, topic and name.  
 
 Finally I added a debug node to confirm that the output is generated.  You should see a 0, 1, 2 in the debug window when you click on the Inject node.
 
+Here's the flow:
+
+	[{"id":"1596ae04.ea6952","type":"lifxalert","name":"Lifx Alert","topic":"lifx","x":316,"y":568,"z":"cb5fa895.34a058","wires":[["ccf84f8e.3307b"]]},{"id":"cf74d59d.308b28","type":"inject","name":"status normal: 0","topic":"","payload":"0","payloadType":"string","repeat":"","crontab":"","once":true,"x":117,"y":527,"z":"cb5fa895.34a058","wires":[["1596ae04.ea6952"]]},{"id":"ccf84f8e.3307b","type":"debug","name":"lifx output","active":true,"console":"false","complete":"false","x":492,"y":601,"z":"cb5fa895.34a058","wires":[]},{"id":"abcff9be.543008","type":"inject","name":"status warning: 1","topic":"","payload":"1","payloadType":"string","repeat":"","crontab":"","once":false,"x":120,"y":566,"z":"cb5fa895.34a058","wires":[["1596ae04.ea6952"]]},{"id":"bb957bce.446a88","type":"inject","name":"status critical: 2","topic":"","payload":"2","payloadType":"string","repeat":"","crontab":"","once":false,"x":114,"y":605,"z":"cb5fa895.34a058","wires":[["1596ae04.ea6952"]]}]
+
+## Issues
+
+1. Sometimes after a few minutes of inactivity, I see an error "[Error: This socket is closed.]"  I'm not sure why this is.  But then after some more time, it seems to resolve.  I suspect it has something to do with how one is to set up the initialization of access to the wifi gateway within the function.  I'd like to either:
+	a. reopen the lifx gateway for each hit and subsequently close the connection, or
+	b. open the lifx wifi connection and leave it open, closing only when I shut down Node-red.
+
 
 I'm new to this, so any tips and tricks would be appreciated.  Thanks.
