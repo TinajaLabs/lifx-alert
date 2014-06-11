@@ -1,6 +1,6 @@
 /**
  * Open source 2014 Tinaja Labs
- * 
+ *
  **/
 
 // Sample Node-RED node file
@@ -9,12 +9,16 @@
 var RED = require(process.env.NODE_RED_HOME+"/red/red");
 // var util = require("util");
 
+var lifx = require('lifx');
+lifx.setDebug(false);
+
+var lx   = null;
+
 // The main node definition - most things happen in here
 function LifxAlertNode(n) {
 
-    var lifx = require('lifx');
-    lifx.setDebug(false);
-    var lx   = lifx.init();
+    if (lx == null) lx = lifx.init();
+
     var bulb = lx.bulbs[0];
 
     // Create a RED node
@@ -60,8 +64,6 @@ function LifxAlertNode(n) {
         // send out the message to the rest of the workspace.
         this.send(msg);
     });
-
-
 
     this.on("close", function() {
         // Called when the node is shutdown - eg on redeploy.

@@ -1,0 +1,14 @@
+{
+    "name"         : "node-red-80-lifxalert",
+    "version"      : "0.0.1",
+    "author": "Chris Jefferies <chris@tinajalabs.com>",
+    "description"  : "A node for using a Lifx LED lightbulb as a home alert device.",
+    "dependencies": {
+        "lifx": "0.1.3"
+    },
+    "node-red"     : {
+        "nodes": {
+            "80-lifxalert": "nodes/io/80-lifxalert.js"
+        }
+    }
+}

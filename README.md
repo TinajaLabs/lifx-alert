@@ -1,6 +1,8 @@
 # lifx-alert
 
-lifx node-red module to show system status using the lifx led light bulb
+lifx node-red module to show system status using the wifi based lifx led light bulb - http://lifx.co/ 
+
+Read about node-red here: https://github.com/node-red
 
 
 My first attempt at writing a node-red node.  This one is meant to talk to the wifi based Lifx LED light bulb and turn it green, yellow, or red based on an alert condition.  I plan to use it for my home automation system as an indicator of overall system status.  The code was derived originally from the sample demo template node.
